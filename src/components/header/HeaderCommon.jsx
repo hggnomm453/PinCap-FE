@@ -1,11 +1,12 @@
-import { Button, Col, Row } from 'antd'
+import { Avatar, Button, Col, Row } from 'antd'
 import jwtDecode from 'jwt-decode';
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { MenuUnfoldOutlined } from '@ant-design/icons';
+import "./index.less";
 
-const Header = () => {
+const HeaderCommon = () => {
   const [name, setName] = useState("");
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();  
@@ -21,19 +22,12 @@ const Header = () => {
     navigate('/sign-in')
   }
   return (
-    <Row className='header' >
-      <Button 
-        type="text" 
-        className='btn-menu-mobile'
-        onClick={() => setCollapseMenu(!collapseMenu)}
-      >
-        <MenuUnfoldOutlined style={{ fontSize: "25px", color: "#000"}}/>
-      </Button>
+    <Row className='main-header'>
       <Col className='title'>
           PINCAP
-      </Col>
+      </Col>  
       <Col>
-        <span style={{ margin : '0 30px'}}>{name}</span>
+        <Avatar icon="user" />
         <Button onClick={() => logoutHandle()}>
           Logout
         </Button>
@@ -42,4 +36,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default HeaderCommon

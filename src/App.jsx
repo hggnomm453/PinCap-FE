@@ -3,6 +3,7 @@ import { Account, Home, SocialLogin } from './pages'
 import React, { useContext, useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { AuthContext } from './context/AuthContext';
+import "./App.less"
 
 const App = () => {
   const { token } = useContext(AuthContext);
