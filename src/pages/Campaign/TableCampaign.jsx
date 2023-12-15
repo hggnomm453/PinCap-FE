@@ -1,11 +1,11 @@
 import { Button, Col, Row, notification } from 'antd'
 import React, { useContext, useEffect, useState } from 'react'
-import MainTable from '../../../components/table/MainTable'
+import MainTable from '../../components/table/MainTable'
 import { EditFilled, EyeOutlined } from '@ant-design/icons'
-import { AuthContext } from '../../../context/AuthContext'
-import EmeterForm from '../../../components/form/EmeterForm'
+import { AuthContext } from '../../context/AuthContext'
+import EmeterForm from '../../components/form/EmeterForm'
 import jwtDecode from 'jwt-decode'
-import { createAndUpdateCampaign, deleteCampaign, getAllCampaigns, getCampaignById } from '../../../api'
+import { createAndUpdateCampaign, deleteCampaign, getAllCampaigns, getCampaignById } from '../../api'
 import moment from 'moment';
 
 const getStatusText = (status) => {
