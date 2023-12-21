@@ -22,7 +22,8 @@
     "react-dom": "^18.2.0",
     "react-https-redirect": "^1.1.0",
     "react-moment": "^1.1.3",
-    "react-router-dom": "^6.11.2"
+    "react-router-dom": "^6.11.2",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

@@ -1,14 +1,23 @@
-import React from "react"
-import "./index.less"
+import React from "react";
+import "./index.less";
+import { useNavigate } from "react-router-dom";
 
 const PinMedia = (props) => {
-    return (
-        // <div className={`pin ${props.size}`}>
-        //     ee
-        // </div>
-        <div className={`box`}>
-            <img src={props.srcUrl} alt="" />
-        </div>
-    )
-}
-export default PinMedia
+  const navigate = useNavigate();
+  const isMp4 = props.srcUrl.endsWith(".mp4");
+  const openDetailMedia = (id) => {
+    navigate(`/media/${id}`);
+  };
+  return (
+    <div className={`box`} onClick={() => openDetailMedia(props.data?.id)}>
+      {isMp4 ? (
+        <video controls>
+          <source src={props.srcUrl} type="video/mp4" />
+        </video>
+      ) : (
+        <img src={props.srcUrl} alt="" />
+      )}
+    </div>
+  );
+};
+export default PinMedia;

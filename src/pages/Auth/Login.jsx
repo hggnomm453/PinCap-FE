@@ -1,7 +1,6 @@
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Col, Divider, Form, Input, Row, notification } from 'antd';
-import { login } from '../../api';
-import { FptLogo, GoogleLogo } from '../../assets/img'
+import { login } from '../../api/auth';
 
 const Login = () => {
   const [api, contextHolder] = notification.useNotification();
@@ -10,9 +9,10 @@ const Login = () => {
   const onLogin = async (values) => {
     try {
       const data = await login(values);
-      localStorage.setItem('token', data.accessToken);
+      console.log(data)
+      localStorage.setItem('token', data.token);
       window.location.reload(true)
-
+      
     } catch (e) {
       api.open({
         message: 'Login Failed',
