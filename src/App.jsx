@@ -11,7 +11,10 @@ import SiderCommon from "./components/sider/SiderCommon";
 import HeaderCommon from "./components/header/HeaderCommon";
 import ImageAi from "./pages/AITools/Images/ImageAi";
 import DetailMedia from "./pages/PinCap/DetailMedia/DetailMedia";
-
+import Dashboard from "./pages/Dashboard/Home";
+import Album from "./pages/Dashboard/Album";
+import AlbumDetail from "./pages/Dashboard/AlbumDetail";
+import MediaReport from "./pages/Dashboard/MediaReport";
 const App = () => {
   const { token } = useContext(AuthContext);
   const [isLogin, setIsLogin] = useState(false);
@@ -43,7 +46,13 @@ const App = () => {
                 <Route path="/create-media" element={<CreateMedia />} />
                 <Route path="/ai" element={<ImageAi />} />
                 <Route path="/media/:id" element={<DetailMedia />} />
-
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard/album" element={<Album />} />
+                <Route path="/dashboard/album/:id" element={<AlbumDetail />} />
+                <Route
+                  path="/dashboard/mediaReport"
+                  element={<MediaReport />}
+                />
                 {/* <Route path='/social-login' element={<SocialLogin />}/> */}
               </Routes>
             </Content>

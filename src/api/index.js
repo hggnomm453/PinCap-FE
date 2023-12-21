@@ -61,7 +61,7 @@ export const getAllCampaigns = async () => {
 
   const config = {
     method: 'get',
-    url: `${baseUrl}/api/Campaign`,
+    url: `${baseUrl}  `,
     headers: { 
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json', 
