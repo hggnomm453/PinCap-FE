@@ -42,10 +42,10 @@ const Sidebar = () => {
 
       >
         <Menu.Item key='1' icon={<VideoCameraOutlined />}>
-          <Link to='/2'>Home</Link>
+          <Link to='/'>Home</Link>
         </Menu.Item>
         <Menu.Item key='2' icon={<VideoCameraOutlined />}>
-          <Link to='/'>e</Link>
+          <Link to='/hello'>e</Link>
         </Menu.Item>
       </Menu>
     </Sider>

@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { MenuUnfoldOutlined } from '@ant-design/icons';
+import { Link } from 'react-scroll';
 
 const Header = () => {
   const [name, setName] = useState("");
@@ -34,9 +35,12 @@ const Header = () => {
       </Col>
       <Col>
         <span style={{ margin : '0 30px'}}>{name}</span>
-        <Button onClick={() => logoutHandle()}>
-          Logout
-        </Button>
+          <Button onClick={() => logoutHandle()} style={{marginRight:'5px'}}>
+            Login
+          </Button>
+          <Button onClick={() => logoutHandle()} style={{marginLeft:'5px'}}>
+            Logout
+          </Button>
       </Col>
     </Row>
   )
