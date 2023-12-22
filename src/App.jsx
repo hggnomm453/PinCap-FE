@@ -29,13 +29,15 @@ const App = () => {
       navigate("/");
       setIsLogin(true);
     } else {
-      navigate("/sign-in");
+
+      // navigate("/home");
+      
       setIsLogin(false);
     }
   }, [token]);
   return (
     <div className="App">
-      {isLogin ? (
+      {isLogin && 
         <>
           <HeaderCommon />
           <Layout style={{ minHeight: "90vh" }}>
@@ -49,24 +51,24 @@ const App = () => {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/dashboard/album" element={<Album />} />
                 <Route path="/dashboard/album/:id" element={<AlbumDetail />} />
-                <Route
+                {/* <Route
                   path="/dashboard/mediaReport"
                   element={<MediaReport />}
-                />
+                /> */}
+
                 {/* <Route path='/social-login' element={<SocialLogin />}/> */}
               </Routes>
             </Content>
           </Layout>
-        </>
-      ) : (
-        <>
-          <Routes>
+        </>}
+        <Routes>
             <Route path="/sign-in" element={<Account />} />
+            <Route path="/home" element={<Home />} /> 
+
             {/* <Route path='/social-login' element={<SocialLogin />}/> */}
           </Routes>
-        </>
-      )}
     </div>
+    
   );
 };
 

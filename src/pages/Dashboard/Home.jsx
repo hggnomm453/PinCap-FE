@@ -7,9 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Dashboard = () => {
   return (
     <Layout className="main-layout">
-      <Sidebar className="sidebar-layout" />
       <Row className="home-layout">
-        <Header />
         <Row gutter={16} style={{ margin: "20px" }}>
           <Col span={8}>
             <Card title="Album/Media" bordered={false}>

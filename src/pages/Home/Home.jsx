@@ -1,7 +1,7 @@
-import React from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import "./index.less";
-import { Button, Layout } from "antd";
+import { Button, Layout, Row } from "antd";
 import HeaderCommon from "../../components/header/HeaderCommon";
 import SiderCommon from "../../components/sider/SiderCommon";
 import PinCap from "../PinCap/PinCap";
@@ -65,9 +65,8 @@ const Home = () => {
   }, [])
   return (
     <Layout className='main-layout' >
-      {/* <Sidebar className='sidebar-layout' /> */}
+      <HeaderCommon />
       <Row className='home-layout'>
-        <Header/>
         {/* <TableCampaign/> */}
         <div className='home'>
           {/* Section 1 */}

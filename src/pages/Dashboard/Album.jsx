@@ -41,7 +41,18 @@ const Album = () => {
       console.error("Error fetching data:", error);
     }
   };
-
+  const deleteAlbum = async(id) => {
+    try {
+      const response = await axios.delete(
+        baseURL + "/album/" + id
+      );
+      if(response) {
+        // window.location.reload(true);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
   useEffect(() => {
     if (album != null) {
       const data = album.map((value) => {
@@ -88,8 +99,7 @@ const Album = () => {
       render: (text, record) => (
         <Space size="middle">
           <Link to={`/dashboard/album/${record.id}`}>Album detail</Link>
-          <a>Delete</a>
-          {console.log(record)}
+          <a onClick={() => deleteAlbum(record.id)}>Delete</a>
         </Space>
       ),
     },
@@ -99,9 +109,7 @@ const Album = () => {
   };
   return (
     <Layout className="main-layout">
-      <Sidebar className="sidebar-layout" />
       <Row className="home-layout">
-        <Header />
         <Button
           // onClick={handleAdd}
           type="primary"

@@ -19,7 +19,10 @@ const HeaderCommon = () => {
 
   const logoutHandle = () => {
     localStorage.removeItem("token");
+    navigate("/home");
     window.location.reload(true);
+  };
+  const loginHandle = () => {
     navigate("/sign-in");
   };
   return (
@@ -33,8 +36,9 @@ const HeaderCommon = () => {
         <img src={Logo} alt="" />
       </Col>
       <Col>
-        <Avatar icon="user" />
-        <Button onClick={() => logoutHandle()}>Logout</Button>
+        {/* <Avatar icon="user" /> */}
+        {token ? <Button onClick={() => logoutHandle()}>Logout</Button> : <Button onClick={() => loginHandle()}>Login</Button>}
+        {}
       </Col>
     </Row>
   );

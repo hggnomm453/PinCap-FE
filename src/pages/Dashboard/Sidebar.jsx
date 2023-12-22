@@ -6,7 +6,6 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons'
 import { Button, Col, Menu, Row } from 'antd';
-import { Crowdow } from '../../assets/img/index'
 import Sider from 'antd/es/layout/Sider'
 import React, { useState } from 'react'
 import Layout from 'antd/es/layout/layout';

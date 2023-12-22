@@ -13,6 +13,7 @@ import {
 
 const baseURL = "http://localhost:8000/api";
 const AlbumDetail = () => {
+  const navigate = useNavigate()
   const [detailAlbum, setDetailAlbum] = useState(null);
   const [medias, setMedias] = useState({
     id: "",
@@ -21,7 +22,7 @@ const AlbumDetail = () => {
     privacy: "",
     type: "",
     description: "",
-    isDeleted:""
+    isDeleted: "",
   });
   const { id } = useParams();
   const getDetailAlbum = async () => {
@@ -36,8 +37,9 @@ const AlbumDetail = () => {
   useEffect(() => {
     getDetailAlbum();
   }, []);
-
-  
+  const openDetailMedia = async (id) => {
+    navigate(`/media/${id}`)
+  }
   const columns = [
     {
       title: "Media",
@@ -53,11 +55,11 @@ const AlbumDetail = () => {
       title: "Privacy",
       dataIndex: "privacy",
       key: "privacy",
-        render: (text, record) => (
-          <span style={{ color: text === "PRIVATE" ? "red" : "blue" }}>
-            {text}
-          </span>
-        ),
+      render: (text, record) => (
+        <span style={{ color: text === "PRIVATE" ? "red" : "blue" }}>
+          {text}
+        </span>
+      ),
     },
     {
       title: "Type",
@@ -70,30 +72,26 @@ const AlbumDetail = () => {
       key: "action",
       render: (text, record) => (
         <Space size="middle">
-          <Link to={`/dashboard/album/${record.id}`}>Media Detail</Link>
+          <Button onClick={() => openDetailMedia(record.id)}>Media Detail</Button>
           <a>Delete</a>
-
         </Space>
       ),
     },
-  ];    
-
+  ];
 
   return (
     <Layout className="main-layout">
-      <Sidebar className="sidebar-layout" />
       <Row className="home-layout">
-        <Header />
-        {medias != null && medias.length > 0  && (
-        <>
-          <Table
-            style={{ margin: "15px 30px" }}
-            columns={columns}
+        {medias != null && medias.length > 0 && (
+          <>
+            <Table
+              style={{ margin: "15px 30px" }}
+              columns={columns}
               dataSource={medias}
-            rowKey={"id"}
-          />
-        </>
-         )} 
+              rowKey={"id"}
+            />
+          </>
+        )}
       </Row>
     </Layout>
   );
